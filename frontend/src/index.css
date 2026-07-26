@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #ECEBE4;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(181, 201, 187, 0.25) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(40, 78, 58, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #1C271B;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(215, 214, 199, 0.65);
+    box-shadow: 0 10px 30px -5px rgba(28, 40, 27, 0.05);
+  }
+
+  .glass-pill {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(215, 214, 199, 0.8);
+    box-shadow: 0 4px 14px rgba(28, 40, 27, 0.04);
+  }
+
+  .btn-forest {
+    background-color: #284E3A;
+    color: #ffffff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-forest:hover {
+    background-color: #1C3829;
+    box-shadow: 0 6px 20px rgba(40, 78, 58, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .input-cream {
+    background-color: #F4F3ED;
+    border: 1px solid #D7D6C7;
+    transition: all 0.2s ease;
+  }
+
+  .input-cream:focus {
+    background-color: #ffffff;
+    border-color: #284E3A;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 78, 58, 0.12);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EAE9E0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5C7B7;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8E917A;
+}
