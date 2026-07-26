@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import api from '../services/api.js';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import { registerUser } from '../services/authService.js';
+import LeadCharts from '../components/LeadCharts.jsx';
 
 const STATUS_CARDS = [
   { key: 'New', label: 'New', badgeColor: 'bg-[#E3EFE6] text-[#244233] border-[#B8D7C0]' },
@@ -238,6 +239,9 @@ export default function Dashboard() {
           );
         })}
       </div>
+
+      {/* Analytics & Lead Graphs (Bar Chart & Circle Ring) */}
+      <LeadCharts stats={stats} />
 
       {/* Recent Activity Section */}
       <div className="glass-card rounded-2xl border border-sage-200/80 overflow-hidden shadow-glass">
