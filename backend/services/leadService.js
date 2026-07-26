@@ -1,5 +1,6 @@
 const leadRepository = require('../repositories/leadRepository');
 const activityRepository = require('../repositories/activityRepository');
+const userRepository = require('../repositories/userRepository');
 const AppError = require('../utils/AppError');
 
 const createLead = async (data, userId, userRole) => {
@@ -124,11 +125,15 @@ const updateLead = async (id, data, userId, userRole) => {
   }
 
   if (data.assignedTo !== undefined && data.assignedTo !== oldAssignedTo) {
-    const assignedUser = data.assignedTo ? `user ${data.assignedTo}` : 'nobody';
+    let assignedUserName = 'nobody';
+    if (data.assignedTo) {
+      const assignedUserObj = await userRepository.findById(data.assignedTo);
+      assignedUserName = assignedUserObj ? assignedUserObj.name : 'Unknown User';
+    }
     await activityRepository.create({
       actor: userId,
       action: 'Lead Assigned',
-      description: `Lead "${lead.name}" was assigned to ${assignedUser}`,
+      description: `Lead "${lead.name}" was assigned to ${assignedUserName}`,
       lead: id,
     });
   }
